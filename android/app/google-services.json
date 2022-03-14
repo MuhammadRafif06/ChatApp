@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "996851397359",
+    "project_id": "chat-app-c83c0",
+    "storage_bucket": "chat-app-c83c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996851397359:android:cb6bd007afc8275189a11a",
+        "android_client_info": {
+          "package_name": "com.rafif.chat_app_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996851397359-nrb23g5td8ck834gouk5dvria3619mr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjuCnYqGQs4H10eVNg0WzHlku6emP_2ig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996851397359-nrb23g5td8ck834gouk5dvria3619mr1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

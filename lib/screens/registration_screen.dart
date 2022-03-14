@@ -1,6 +1,9 @@
+import 'package:chat_app_application/screens/chat_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
+  static const String id = 'REGISTRATION_SCREEN';
   const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
@@ -8,6 +11,12 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+
+  final _auth = FirebaseAuth.instance;
+
+  late String email;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +35,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              style: const TextStyle(color: Colors.black),
+              textAlign: TextAlign.center,
               onChanged: (value){
+                email = value;
                 // input your email
               },
               decoration: const InputDecoration(
@@ -50,7 +63,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 8.0,
             ),
             TextField(
+              obscureText: true,
+              style: TextStyle(color: Colors.black),
+              textAlign: TextAlign.center,
               onChanged: (value){
+                password = value;
                 // input your email
               },
               decoration: const InputDecoration(
@@ -79,8 +96,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 color: Colors.blueAccent,
                 borderRadius: BorderRadius.all(Radius.circular(30)),
                 child: MaterialButton(
-                  onPressed: (){
-                    // button registration
+                  onPressed: () async {
+                    try{
+                      await _auth.signInWithEmailAndPassword(email: email, password: password);
+                      Navigator.pushNamed(context, ChatScreen.id);
+                    }catch(e){
+                      print(e);
+                    }
                   },
                   minWidth: 200.0,
                   height: 42,
